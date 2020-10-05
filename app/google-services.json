@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "363668616917",
+    "firebase_url": "https://sunrin-tiatt.firebaseio.com",
+    "project_id": "sunrin-tiatt",
+    "storage_bucket": "sunrin-tiatt.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:363668616917:android:f3349c62da0f267599945c",
+        "android_client_info": {
+          "package_name": "tiatt.jw"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "363668616917-i5o0hoh07cclme2seeh1f85ispco1lsl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tiatt.jw",
+            "certificate_hash": "f84e04843f473abbea6148b3ce65bf183bac9702"
+          }
+        },
+        {
+          "client_id": "363668616917-ka6jrbl6l67fldn4psc1oiecp8m51qot.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAufsEi9_cTPQEUaP1Hhh9VVd0uDazPaYg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "363668616917-ka6jrbl6l67fldn4psc1oiecp8m51qot.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

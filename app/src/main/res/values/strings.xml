@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">띠앗</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">우리말 사전</string>
+    <string name="menu_slideshow">우리말로 바꾸기</string>
+    <string name="menu_tools">우리말 놀이</string>
+    <string name="menu_wordmix">우리말 단어 맞추기</string>
+
+
+
+
+    <string name="menu_gallery">순우리말 사전</string>
+    <string name="menu_setting">환경설정</string>
+    <string name="menu_quiz02">우리말 사전</string>
+    <string name="menu_send">개발자에게 문의하기</string>
+
+
+</resources>
