@@ -6,23 +6,23 @@
     <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/nav_dictionary"
             android:icon="@drawable/baseline_book_black_18dp"
-            android:title="@string/menu_home" />
+            android:title="@string/menu_dictionary" />
 
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_translate"
             android:icon="@drawable/baseline_autorenew_black_18dp"
-            android:title="@string/menu_slideshow" />
+            android:title="@string/menu_translate" />
         <item
-            android:id="@+id/nav_tools"
+            android:id="@+id/nav_quiz"
             android:icon="@drawable/baseline_accessibility_black_18dp"
-            android:title="@string/menu_tools" />
+            android:title="@string/menu_quiz" />
 
         <item
-            android:id="@+id/nav_wordmix"
+            android:id="@+id/nav_word_matching"
             android:icon="@drawable/baseline_accessibility_black_18dp"
-            android:title="@string/menu_wordmix" />
+            android:title="@string/menu_word_matching" />
 
     </group>
 

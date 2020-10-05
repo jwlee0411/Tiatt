@@ -3,30 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_dictionary">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="tiatt.jw.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/nav_dictionary"
+        android:name="tiatt.jw.DictionaryFragment"
+        android:label="@string/menu_dictionary"
+        tools:layout="@layout/fragment_dictionary" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="tiatt.jw.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_translate"
+        android:name="tiatt.jw.TranslateFragment"
+        android:label="@string/menu_translate"
+        tools:layout="@layout/fragment_translate" />
 
     <fragment
-        android:id="@+id/nav_tools"
-        android:name="tiatt.jw.ToolsFragment"
-        android:label="@string/menu_tools"
-        tools:layout="@layout/fragment_tools" />
+        android:id="@+id/nav_quiz"
+        android:name="tiatt.jw.QuizFragment"
+        android:label="@string/menu_quiz"
+        tools:layout="@layout/fragment_quiz" />
 
     <fragment
-        android:id="@+id/nav_wordmix"
-        android:name="tiatt.jw.WordMixFragment"
-        android:label="@string/menu_wordmix"
-        tools:layout="@layout/fragment_wordmix"
-        />
+        android:id="@+id/nav_word_matching"
+        android:name="tiatt.jw.WordMatchingFragment"
+        android:label="@string/menu_word_matching"
+        tools:layout="@layout/fragment_word_matching" />
 </navigation>
