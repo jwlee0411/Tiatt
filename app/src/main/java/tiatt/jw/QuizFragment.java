@@ -13,14 +13,9 @@ import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
-
-import tiatt.jw.R;
 
 
-
-
-public class ToolsFragment extends Fragment {
+public class QuizFragment extends Fragment {
 
 
     TextView txtQuiz;
@@ -348,7 +343,7 @@ public class ToolsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.fragment_tools, container, false);
+        View root = inflater.inflate(R.layout.fragment_quiz, container, false);
         return root;
 
 

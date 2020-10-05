@@ -14,12 +14,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
 
 import java.util.Arrays;
 
-import tiatt.jw.R;
-public class WordMixFragment extends Fragment {
+public class WordMatchingFragment extends Fragment {
 
     public boolean doubleClicked = false;
     public int answerNum = -1;
@@ -390,7 +388,7 @@ public class WordMixFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-       View root = inflater.inflate(R.layout.fragment_wordmix, container, false);
+       View root = inflater.inflate(R.layout.fragment_word_matching, container, false);
 
       button1 = root.findViewById(R.id.button1);
       button2 = root.findViewById(R.id.button2);
