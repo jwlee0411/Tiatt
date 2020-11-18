@@ -20,4 +20,6 @@
     <string name="menu_send">개발자에게 문의하기</string>
 
 
+    <string name="search_hint">검색할 단어를 입력하세요.</string>
+    <string name="search_korean">우리말로 검색</string>
 </resources>
