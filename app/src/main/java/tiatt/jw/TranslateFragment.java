@@ -30,6 +30,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,9 +52,9 @@ public class TranslateFragment extends Fragment implements TextToSpeech.OnInitLi
     TextToSpeech tts;
 
     Button btnTranslate;
-    Button btnTTSRead;
-    Button btnTTSRead2;
-    Button btnTTSWrite;
+    ImageButton btnTTSRead;
+    ImageButton btnTTSRead2;
+    ImageButton btnTTSWrite;
     EditText textConvertInput;
     TextView textConvertResult;
 
@@ -106,8 +107,6 @@ public class TranslateFragment extends Fragment implements TextToSpeech.OnInitLi
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-
 
 
         btnTranslate = getView().findViewById(R.id.btnTranslate);
@@ -501,7 +500,7 @@ public class TranslateFragment extends Fragment implements TextToSpeech.OnInitLi
 
     public void TranslateClick(View view) {
         Toast.makeText(getActivity(), "1234", Toast.LENGTH_LONG).show();
-        btnTTSRead.setText("1234");
+//        btnTTSRead.setText("1234");
 
 
     }
