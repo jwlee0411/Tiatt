@@ -24,10 +24,18 @@ public class QuizFragment extends Fragment {
     Button bogie3;
     Button bogie4;
 
+
+
+
+
     int QuestionNum = 50;
     int CurrentNum = (int)(Math.random()*QuestionNum);
     int AnswerNum;
     String CurrentAnswer;
+
+
+
+
 
 
 
