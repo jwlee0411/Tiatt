@@ -25,11 +25,10 @@
         android:id="@+id/textConvertInput"
         android:layout_width="0dp"
         android:layout_height="0dp"
-
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
-        android:background="@drawable/edge"
+        android:background="@drawable/rounded_button"
         android:ems="10"
         android:gravity="start|top"
         android:hint="바꿀 글자나 문장을 넣어주세요."
@@ -39,7 +38,6 @@
         android:paddingRight="15dp"
         android:paddingBottom="15dp"
         android:textSize="20dp"
-
         app:layout_constraintBottom_toTopOf="@id/btnTTSRead2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -56,7 +54,6 @@
         app:layout_constraintBottom_toTopOf="@id/btnTTSRead"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-
         app:layout_constraintTop_toBottomOf="@+id/btnTTSRead2">
 
 
@@ -64,20 +61,15 @@
             android:id="@+id/textConvertResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/edge"
+            android:background="@drawable/rounded_button"
             android:ems="10"
             android:gravity="start|top"
-
             android:paddingLeft="15dp"
             android:paddingTop="15dp"
             android:paddingRight="15dp"
-
             android:paddingBottom="15dp"
-
             android:text="바꾼 글자나 문장은 여기에 뜹니다."
             android:textColor="@color/black"
             android:textSize="20dp" />
