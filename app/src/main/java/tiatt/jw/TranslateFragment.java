@@ -49,6 +49,10 @@ import static android.content.Context.NOTIFICATION_SERVICE;
 
 public class TranslateFragment extends Fragment implements TextToSpeech.OnInitListener {
 
+    public static TranslateFragment newInstance() {
+        return new TranslateFragment();
+    }
+
     TextToSpeech tts;
 
     Button btnTranslate;

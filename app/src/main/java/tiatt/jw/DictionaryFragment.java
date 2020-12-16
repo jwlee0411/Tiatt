@@ -21,6 +21,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class DictionaryFragment extends Fragment {
 
+    public static DictionaryFragment newInstance() {
+        return new DictionaryFragment();
+    }
+
     String[] ChangeArr[] = {
 
             //참고 : https://projectresearch.co.kr/2012/10/03/%EB%A9%8B%EC%A7%84-%EC%9A%B0%EB%A6%AC%EB%A7%90-%EC%88%9C%ED%99%94-%EB%AA%A9%EB%A1%9D-%EA%B5%AD%EB%A6%BD%EA%B5%AD%EC%96%B4%EC%9B%90-%EC%9A%B0%EB%A6%AC%EB%A7%90-%EB%8B%A4%EB%93%AC%EA%B8%B0/

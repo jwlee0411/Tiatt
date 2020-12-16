@@ -19,6 +19,10 @@ import java.util.Arrays;
 
 public class WordMatchingFragment extends Fragment {
 
+    public static WordMatchingFragment newInstance() {
+        return new WordMatchingFragment();
+    }
+
     public boolean doubleClicked = false;
     public int answerNum = -1;
 

@@ -17,6 +17,10 @@ import androidx.fragment.app.Fragment;
 
 public class QuizFragment extends Fragment {
 
+    public static QuizFragment newInstance() {
+        return new QuizFragment();
+    }
+
 
     TextView txtQuiz;
     Button bogie1;
