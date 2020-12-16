@@ -3,34 +3,79 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="32dp"
+    android:fitsSystemWindows="true"
+    android:background="@color/background_gray">
 
-    <Button
-        android:id="@+id/btnTTSRead"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/rounded_button"
-        android:text="말하기"
+    <ImageButton
+        android:id="@+id/btnTTSRead2"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:background="@drawable/btn_round"
+        android:src="@drawable/icon_pronounce"
+        android:tint="@color/gray_700"
+        android:padding="8dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ScrollView1" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:scaleType="fitXY"
+        />
+
+    <ImageButton
+        android:id="@+id/btnTTSWrite"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:background="@drawable/btn_round"
+        android:src="@drawable/icon_record"
+        android:tint="@color/gray_700"
+        android:padding="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:scaleType="fitXY"
+        />
+
+    <ImageButton
+        android:id="@+id/btnTTSRead"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:background="@drawable/btn_round"
+        android:src="@drawable/icon_pronounce"
+        android:tint="@color/gray_700"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:padding="8dp"
+        android:scaleType="fitXY"
+        />
+
+
+    <!--    <Button-->
+    <!--        android:id="@+id/btnTTSRead"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:layout_marginEnd="16dp"-->
+
+    <!--        android:layout_marginRight="16dp"-->
+    <!--        android:layout_marginBottom="10dp"-->
+    <!--        android:background="@drawable/rounded_button"-->
+    <!--        android:text="말하기"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/ScrollView1" />-->
 
     <EditText
         android:id="@+id/textConvertInput"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/rounded_button"
+
+        android:background="@drawable/edge"
         android:ems="10"
-        android:gravity="start|top"
+        android:layout_marginBottom="32dp"
         android:hint="바꿀 글자나 문장을 넣어주세요."
         android:inputType="textMultiLine"
         android:paddingLeft="15dp"
@@ -38,7 +83,8 @@
         android:paddingRight="15dp"
         android:paddingBottom="15dp"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@id/btnTTSRead2"
+        android:backgroundTint="@color/gray_700"
+        app:layout_constraintBottom_toTopOf="@id/btnTTSWrite"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -47,29 +93,33 @@
         android:id="@+id/ScrollView1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="20dp"
         android:overScrollMode="never"
         android:paddingTop="0dp"
         android:scrollbars="none"
-        app:layout_constraintBottom_toTopOf="@id/btnTTSRead"
+        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnTTSRead2">
+        app:layout_constraintTop_toBottomOf="@+id/btnTTSWrite">
 
 
         <TextView
             android:id="@+id/textConvertResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/rounded_button"
+
+            android:backgroundTint="@color/gray_700"
+
+            android:background="@drawable/edge"
             android:ems="10"
             android:gravity="start|top"
+
             android:paddingLeft="15dp"
             android:paddingTop="15dp"
             android:paddingRight="15dp"
+
             android:paddingBottom="15dp"
+
             android:text="바꾼 글자나 문장은 여기에 뜹니다."
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -88,32 +138,4 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btnTTSRead2" />
-
-    <Button
-        android:id="@+id/btnTTSWrite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/rounded_button_2"
-        android:text="알아듣기"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnTTSRead2"
-        app:layout_constraintTop_toTopOf="@+id/btnTTSRead2" />
-
-    <Button
-        android:id="@+id/btnTTSRead2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="288dp"
-        android:layout_marginLeft="288dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/rounded_button"
-        android:text="말하기"
-        app:layout_constraintBottom_toTopOf="@id/ScrollView1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textConvertInput"
-        android:layout_marginRight="16dp" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
