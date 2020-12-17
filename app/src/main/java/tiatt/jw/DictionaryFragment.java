@@ -1,5 +1,6 @@
 package tiatt.jw;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
@@ -18,8 +20,18 @@ import android.widget.Switch;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import soup.neumorphism.NeumorphImageButton;
+
 
 public class DictionaryFragment extends Fragment {
+
+    private Context mContext;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        mContext = context;
+    }
 
     public static DictionaryFragment newInstance() {
         return new DictionaryFragment();
@@ -375,8 +387,16 @@ public class DictionaryFragment extends Fragment {
             }
         });
 
+        NeumorphImageButton searchBtn = root.findViewById(R.id.searchBtn);
+        searchBtn.setOnClickListener(view -> {
+            // EditText에 Focus
+            textSearch.requestFocus();
 
+            //키보드 보이게 하는 부분
+            InputMethodManager imm = (InputMethodManager) mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
 
+        });
 
         return root;
     }

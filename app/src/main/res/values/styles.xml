@@ -4,26 +4,35 @@
         <item name="colorPrimary">@color/gray_700</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@color/gray_500</item>
+        <item name="android:textViewStyle">@style/TextViewStyle</item>
     </style>
 
     <style name="SearchInputStyle" parent="Widget.AppCompat.EditText">
-        <item name="android:padding">8dp</item>
-        <item name="android:layout_marginStart">10dp</item>
-        <item name="android:layout_marginEnd">5dp</item>
-        <item name="android:layout_marginTop">5dp</item>
         <item name="android:background">@drawable/round_box</item>
         <item name="backgroundTint">@color/background_gray</item>
+        <item name="fontFamily">@font/nanum_myeongjo_bold</item>
         <item name="android:textColorHint">@color/gray_700</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">20sp</item>
+        <item name="android:ems">10</item>
+        <item name="android:inputType">textPersonName</item>
     </style>
 
     <style name="SearchOptionSwitchStyle" parent="Widget.AppCompat.CompoundButton.Switch">
         <!-- 우리말로 검색 스위치 스타일 -->
     </style>
 
+    <style name="TextViewStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/nanum_myeongjo_bold</item>
+        <item name="android:textColor">@color/gray_700</item>
+    </style>
+
     <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
+        <item name="windowActionBar">false</item>k
         <item name="windowNoTitle">true</item>
     </style>
 

@@ -13,7 +13,7 @@
             style="@style/Widget.Neumorph.CardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -27,23 +27,25 @@
                     android:id="@+id/textSearch"
                     style="@style/SearchInputStyle"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:ems="10"
+                    android:layout_height="77dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
                     android:hint="@string/search_hint"
-                    android:inputType="textPersonName"
-                    android:textColorHint="@color/gray_700" />
+                    android:padding="8dp" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end">
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp">
 
                         <soup.neumorphism.NeumorphImageButton
-                            android:id="@+id/bottom_dictionary"
+                            android:id="@+id/searchBtn"
                             style="@style/Widget.Neumorph.ImageButton"
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:layout_marginTop="5dp"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:padding="22dp"
                             android:scaleType="centerInside"
@@ -55,6 +57,7 @@
         </soup.neumorphism.NeumorphCardView>
 
         <Switch
+            style="@style/SearchOptionSwitchStyle"
             android:id="@+id/switch5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
