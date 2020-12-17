@@ -36,7 +36,7 @@
 
                 <EditText
                     android:id="@+id/textSearch"
-                    style="@style/SearchInputStyle"
+                    style="@style/EditTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="77dp"
                     android:layout_marginStart="10dp"

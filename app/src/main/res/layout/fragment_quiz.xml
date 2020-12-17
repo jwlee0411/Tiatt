@@ -28,7 +28,7 @@
         android:gravity="center"
         android:text="(문제)"
         android:textAlignment="center"
-        android:textSize="24dp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,6 +57,8 @@
             android:layout_weight="2"
             android:layout_marginBottom="16dp"
             android:text="보기1"
+            android:textSize="16sp"
+            android:fontFamily="@font/nanum_myeongjo_bold"
             app:neumorph_backgroundColor="@color/gray_100"/>
 
         <soup.neumorphism.NeumorphButton
@@ -67,6 +69,8 @@
             android:layout_weight="2"
             android:layout_marginBottom="16dp"
             android:text="보기2"
+            android:textSize="16sp"
+            android:fontFamily="@font/nanum_myeongjo_bold"
             app:neumorph_backgroundColor="@color/gray_100"/>
 
         <soup.neumorphism.NeumorphButton
@@ -77,6 +81,8 @@
             android:layout_weight="2"
             android:layout_marginBottom="16dp"
             android:text="보기3"
+            android:textSize="16sp"
+            android:fontFamily="@font/nanum_myeongjo_bold"
             app:neumorph_backgroundColor="@color/gray_100"/>
 
         <soup.neumorphism.NeumorphButton
@@ -86,6 +92,8 @@
             android:layout_height="0dp"
             android:layout_weight="2"
             android:text="보기4"
+            android:textSize="16sp"
+            android:fontFamily="@font/nanum_myeongjo_bold"
             app:neumorph_backgroundColor="@color/gray_100"/>
 
         <!--        <Button-->

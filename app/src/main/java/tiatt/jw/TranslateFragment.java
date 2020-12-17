@@ -44,6 +44,8 @@ import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import soup.neumorphism.NeumorphFloatingActionButton;
+
 import static android.content.ClipDescription.MIMETYPE_TEXT_PLAIN;
 import static android.content.Context.NOTIFICATION_SERVICE;
 
@@ -56,9 +58,7 @@ public class TranslateFragment extends Fragment implements TextToSpeech.OnInitLi
 
     TextToSpeech tts;
 
-    ImageButton btnTranslate;
-    ImageButton btnTTSRead;
-    ImageButton btnTTSWrite;
+    NeumorphFloatingActionButton btnTranslate, btnTTSRead, btnTTSWrite;
     EditText textConvertInput;
     TextView textConvertResult;
 
@@ -513,6 +513,9 @@ public class TranslateFragment extends Fragment implements TextToSpeech.OnInitLi
 
         //0731 처음부터 시작
         String Translate = textConvertInput.getText().toString();
+
+        if (Translate.length() <= 0) return;
+
         System.out.println(ChangeArr.length);
         int[][] changed =
                 {
