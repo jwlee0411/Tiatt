@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="8dp"
     android:gravity="center_vertical"
     android:layout_marginBottom="8dp"
-    android:paddingStart="20dp"
-    android:paddingEnd="20dp"
+    android:paddingStart="24dp"
+    android:paddingEnd="16dp"
     android:background="@color/background_gray">
 
     <LinearLayout
@@ -113,12 +114,26 @@
         android:visibility="gone"
         android:text="보관\n하기" />
 
-    <Button
+<!--    <Button-->
+<!--        android:id="@+id/buttonShare"-->
+<!--        android:layout_width="50dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginLeft="3dp"-->
+<!--        android:layout_marginRight="3dp"-->
+<!--        android:background="@drawable/rounded_button"-->
+<!--        android:text="공유\n하기" />-->
+
+    <soup.neumorphism.NeumorphFloatingActionButton
         android:id="@+id/buttonShare"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginRight="3dp"
-        android:background="@drawable/rounded_button"
-        android:text="공유\n하기" />
+        style="@style/Widget.Neumorph.FloatingActionButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingStart="22dp"
+        android:paddingEnd="28dp"
+        android:paddingTop="18dp"
+        android:paddingBottom="18dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/icon_share" />
 </LinearLayout>

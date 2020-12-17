@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#BCCAE4</color>
     <color name="colorPrimaryDark">#778193</color>
-    <color name="colorAccent">#BCCAE4</color>
+    <color name="colorAccent">#7CA0E1</color>
     <color name="weakYellow">#FFE0BD</color>
     <color name="darkBlue">#FFB460</color>
     <color name="bgColor">#1AFFB460</color>
@@ -15,4 +15,5 @@
     <color name="gray_200">#CBD9EC</color>
     <color name="gray_500">#BCCAE4</color>
     <color name="gray_700">#778193</color>
+    <color name="blue_500">#7CA0E1</color>
 </resources>

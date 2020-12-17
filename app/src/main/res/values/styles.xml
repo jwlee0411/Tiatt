@@ -23,6 +23,8 @@
 
     <style name="SearchOptionSwitchStyle" parent="Widget.AppCompat.CompoundButton.Switch">
         <!-- 우리말로 검색 스위치 스타일 -->
+        <item name="track">@drawable/switch_track_selector</item>
+        <item name="android:thumb">@drawable/switch_thumb</item>
     </style>
 
     <style name="TextViewStyle">

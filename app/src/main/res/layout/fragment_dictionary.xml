@@ -67,14 +67,16 @@
 
         </soup.neumorphism.NeumorphCardView>
 
-        <Switch
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/option_switch"
             style="@style/SearchOptionSwitchStyle"
-            android:id="@+id/switch5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="24dp"
             android:text="@string/search_korean"
             android:textSize="12sp"
+            app:switchPadding="20dp"
+            android:fontFamily="@font/nanum_myeongjo_bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edittext_card" />
 
@@ -82,10 +84,11 @@
             android:id="@+id/recyclerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/switch5"
-            tools:listitem="@layout/item"/>
+            app:layout_constraintTop_toBottomOf="@+id/option_switch"
+            tools:listitem="@layout/item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

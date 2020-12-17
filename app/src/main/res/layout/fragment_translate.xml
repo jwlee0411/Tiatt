@@ -5,6 +5,8 @@
     android:layout_height="match_parent"
     android:backgroundTint="@color/background_gray">
 
+    <!-- TODO: Create auto translate toggle -->
+
     <ImageView
         android:id="@+id/dict_title_img"
         android:layout_width="100dp"
@@ -58,6 +60,8 @@
             android:layout_width="96dp"
             android:layout_height="96dp"
             android:layout_gravity="start"
+            android:clickable="true"
+            android:focusable="true"
             android:padding="20dp"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/icon_pronounce" />

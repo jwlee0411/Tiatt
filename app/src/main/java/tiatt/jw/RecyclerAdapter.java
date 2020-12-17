@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import soup.neumorphism.NeumorphFloatingActionButton;
+
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemViewHolder> {
 
     // adapter에 들어갈 list 입니다.
@@ -62,7 +64,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
         private TextView textOtherWord;
         private TextView textEnglish;
 
-        private Button buttonShare;
+        private NeumorphFloatingActionButton buttonShare;
         private Button buttonSpeak;
 
 
