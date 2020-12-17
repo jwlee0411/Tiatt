@@ -3,94 +3,130 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_weight="10">
+    android:layout_weight="10"
+    android:backgroundTint="@color/background_gray">
+
+    <ImageView
+        android:id="@+id/dict_title_img"
+        android:layout_width="100dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:scaleType="fitEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/title_wordmatching" />
 
     <TextView
         android:id="@+id/txtQuiz"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-
+        android:layout_height="100dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="@font/ngothicbb"
         android:gravity="center"
         android:text="(문제)"
         android:textAlignment="center"
         android:textSize="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/bogie1"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.055" />
+        app:layout_constraintVertical_bias="0.65"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-    <Button
-        android:id="@+id/bogie1"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/rounded_button"
-        android:text="보기1"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/bogie2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtQuiz" />
-
-    <Button
-        android:id="@+id/bogie2"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/rounded_button"
-        android:text="보기2"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/bogie3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bogie1" />
-
-    <Button
-        android:id="@+id/bogie3"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/rounded_button"
-        android:text="보기3"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/bogie4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bogie2" />
-
-    <Button
-        android:id="@+id/bogie4"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/rounded_button"
-        android:text="보기4"
-        android:textColor="@color/white"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bogie3" />
+        app:layout_constraintTop_toBottomOf="@+id/txtQuiz">
+
+
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/bogie1"
+            style="@style/Widget.Neumorph.Button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:layout_marginBottom="16dp"
+            android:text="보기1"
+            app:neumorph_backgroundColor="@color/gray_100"/>
+
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/bogie2"
+            style="@style/Widget.Neumorph.Button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:layout_marginBottom="16dp"
+            android:text="보기2"
+            app:neumorph_backgroundColor="@color/gray_100"/>
+
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/bogie3"
+            style="@style/Widget.Neumorph.Button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:layout_marginBottom="16dp"
+            android:text="보기3"
+            app:neumorph_backgroundColor="@color/gray_100"/>
+
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/bogie4"
+            style="@style/Widget.Neumorph.Button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:text="보기4"
+            app:neumorph_backgroundColor="@color/gray_100"/>
+
+        <!--        <Button-->
+        <!--            android:id="@+id/bogie1"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:layout_marginBottom="24dp"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:background="@drawable/rounded_button"-->
+        <!--            android:text="보기1"-->
+        <!--            android:textColor="@color/white" />-->
+
+        <!--        <Button-->
+        <!--            android:id="@+id/bogie2"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:layout_marginBottom="24dp"-->
+        <!--            android:background="@drawable/rounded_button"-->
+        <!--            android:text="보기2"-->
+        <!--            android:textColor="@color/white" />-->
+
+        <!--        <Button-->
+        <!--            android:id="@+id/bogie3"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:layout_marginBottom="24dp"-->
+        <!--            android:background="@drawable/rounded_button"-->
+        <!--            android:text="보기3"-->
+        <!--            android:textColor="@color/white" />-->
+
+        <!--        <Button-->
+        <!--            android:id="@+id/bogie4"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:background="@drawable/rounded_button"-->
+        <!--            android:text="보기4"-->
+        <!--            android:textColor="@color/white"/>-->
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

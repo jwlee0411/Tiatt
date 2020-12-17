@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-
-
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/linearLayoutTop"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        >
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/background_gray">
 
-
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/dict_title_img"
+        android:layout_width="100dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:scaleType="fitEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/title_translate" />
 
     <Button
         android:id="@+id/button4"
@@ -41,17 +39,13 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
         android:background="@drawable/rounded_button"
         android:text="단어1"
         app:layout_constraintBottom_toTopOf="@id/button4"
         app:layout_constraintEnd_toStartOf="@id/button2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        />
+        app:layout_constraintTop_toBottomOf="@+id/dict_title_img" />
 
     <Button
         android:id="@+id/button2"
@@ -125,9 +119,7 @@
         android:text="단어8"
         app:layout_constraintEnd_toStartOf="@id/button9"
         app:layout_constraintStart_toEndOf="@id/button7"
-        app:layout_constraintTop_toTopOf="@+id/button7"
-
-        />
+        app:layout_constraintTop_toTopOf="@+id/button7"/>
 
     <Button
         android:id="@+id/button9"
@@ -176,7 +168,6 @@
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/rounded_button"

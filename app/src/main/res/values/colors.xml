@@ -11,6 +11,7 @@
     <color name="white">#FFFFFF</color>
 
     <color name="background_gray">#EFF4FB</color>
+    <color name="gray_100">#e9eefa</color>
     <color name="gray_200">#CBD9EC</color>
     <color name="gray_500">#BCCAE4</color>
     <color name="gray_700">#778193</color>
