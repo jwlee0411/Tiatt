@@ -119,7 +119,6 @@ public class TranslateFragment extends Fragment implements TextToSpeech.OnInitLi
 
         textConvertInput = getView().findViewById(R.id.textConvertInput);
         btnTTSRead = getView().findViewById(R.id.btnTTSRead);
-        btnTTSRead2 = getView().findViewById(R.id.btnTTSRead2);
         btnTTSWrite = getView().findViewById(R.id.btnTTSWrite);
 
 

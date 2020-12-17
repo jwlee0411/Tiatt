@@ -55,8 +55,7 @@
             android:layout_weight="1"
             android:padding="18dp"
             android:scaleType="centerInside"
-            android:src="@drawable/bottom_icon_translate"
-            app:neumorph_shapeType="flat" />
+            android:src="@drawable/bottom_icon_translate"/>
 
         <soup.neumorphism.NeumorphImageButton
             android:id="@+id/bottom_quiz"
@@ -66,8 +65,7 @@
             android:layout_weight="1"
             android:padding="22dp"
             android:scaleType="centerInside"
-            android:src="@drawable/bottom_icon_quiz"
-            app:neumorph_shapeType="flat"/>
+            android:src="@drawable/bottom_icon_quiz"/>
 
         <soup.neumorphism.NeumorphImageButton
             android:id="@+id/bottom_match_game"
@@ -77,8 +75,7 @@
             android:layout_weight="1"
             android:padding="22dp"
             android:scaleType="centerInside"
-            android:src="@drawable/bottom_icon_match_game"
-            app:neumorph_shapeType="flat" />
+            android:src="@drawable/bottom_icon_match_game"/>
 
     </LinearLayout>
 

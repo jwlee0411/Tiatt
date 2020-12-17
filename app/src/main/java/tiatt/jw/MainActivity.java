@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             b.setOnClickListener(bottomClickListener);
 
         ChangeFragment(DictionaryFragment.newInstance());
+
 //        Toolbar toolbar = findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 //
@@ -70,7 +71,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private View.OnClickListener bottomClickListener = view -> {
+        // currentPage : 바뀌기 전 페이지
         bottomButtons.get(currentPage).setShapeType(0);
+        bottomButtons.get(currentPage).setClickable(true);
+
         switch (view.getId()) {
             case R.id.bottom_dictionary:
                 ChangeFragment(DictionaryFragment.newInstance());
@@ -89,8 +93,10 @@ public class MainActivity extends AppCompatActivity {
                 currentPage = 3;
                 break;
         }
-        bottomButtons.get(currentPage).setShapeType(1);
 
+        // currentPage : 바뀐 후 페이지
+        bottomButtons.get(currentPage).setShapeType(1);
+        bottomButtons.get(currentPage).setClickable(false);
     };
 
     private void ChangeFragment(Fragment fragment) {

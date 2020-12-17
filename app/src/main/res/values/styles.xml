@@ -7,12 +7,15 @@
     </style>
 
     <style name="SearchInputStyle" parent="Widget.AppCompat.EditText">
-        <item name="android:padding">12dp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:layout_marginTop">5dp</item>
         <item name="android:background">@drawable/round_box</item>
-        <item name="backgroundTint">@color/gray_500</item>
+        <item name="backgroundTint">@color/background_gray</item>
         <item name="android:textColorHint">@color/gray_700</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">17sp</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="SearchOptionSwitchStyle" parent="Widget.AppCompat.CompoundButton.Switch">
