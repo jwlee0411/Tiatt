@@ -1,84 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="@color/background_gray">
+    android:backgroundTint="@color/background_gray">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
-        android:layout_width="match_parent"
-        android:layout_height="152dp"
-        android:fitsSystemWindows="true">
-
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-            app:expandedTitleMarginStart="72dp"
-            app:expandedTitleMarginBottom="28dp">
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/dic_title_img"
-                android:scaleType="centerCrop"
-                android:fitsSystemWindows="true"
-                android:contentDescription="@string/dic_title"/>
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                android:elevation="0dp" />
-
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" >
-
-        <EditText
-            android:id="@+id/textSearch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="@string/search_hint"
-            android:inputType="textPersonName"
+        <ImageView
+            android:id="@+id/dict_title_img"
+            android:layout_width="195dp"
+            android:layout_height="85dp"
+            android:layout_marginTop="24dp"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/title_dict" />
 
-        <Switch
-            android:id="@+id/switch5"
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/edittext_card"
+            style="@style/Widget.Neumorph.CardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dict_title_img"
+            app:neumorph_shapeType="pressed"
+            app:neumorph_strokeColor="@color/gray_200"
+            app:neumorph_strokeWidth="4dp">
+
+                <EditText
+                    android:id="@+id/textSearch"
+                    style="@style/EditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="77dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:hint="@string/search_hint"
+                    android:padding="8dp" />
+
+                <LinearLayout
+                    android:layout_width="85dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp">
+
+                        <soup.neumorphism.NeumorphImageButton
+                            android:id="@+id/searchBtn"
+                            style="@style/Widget.Neumorph.ImageButton"
+                            android:layout_width="0dp"
+                            android:layout_height="80dp"
+                            android:layout_weight="1"
+                            android:padding="22dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/icon_search"
+                            app:neumorph_backgroundColor="@color/white" />
+
+                </LinearLayout>
+
+        </soup.neumorphism.NeumorphCardView>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/option_switch"
+            style="@style/SearchOptionSwitchStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginEnd="24dp"
             android:text="@string/search_korean"
             android:textSize="12sp"
-            app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+            app:switchPadding="20dp"
+            android:fontFamily="@font/nanum_myeongjo_bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/edittext_card" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSearch" />
+            app:layout_constraintTop_toBottomOf="@+id/option_switch"
+            tools:listitem="@layout/item" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

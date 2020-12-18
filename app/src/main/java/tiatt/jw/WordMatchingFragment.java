@@ -15,9 +15,17 @@ import androidx.annotation.RequiresApi;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
+import soup.neumorphism.NeumorphButton;
+import soup.neumorphism.NeumorphTextView;
+
 public class WordMatchingFragment extends Fragment {
+
+    public static WordMatchingFragment newInstance() {
+        return new WordMatchingFragment();
+    }
 
     public boolean doubleClicked = false;
     public int answerNum = -1;
@@ -300,21 +308,13 @@ public class WordMatchingFragment extends Fragment {
     };
 
 
-    Button button1;
-    Button button2;
-    Button button3;
-    Button button4 ;
-    Button button5;
-    Button button6;
-    Button button7;
-    Button button8;
-    Button button9;
-    Button button10;
-    Button button11;
-    Button button12 ;
-    Button buttonShare;
-    Button buttonReset;
-    Button buttonReArrange ;
+    ArrayList<NeumorphButton> buttons = new ArrayList<>();
+//    Button buttonShare;
+//    Button buttonReset;
+//    Button buttonReArrange ;
+    NeumorphTextView buttonShare;
+    NeumorphTextView buttonReset;
+    NeumorphTextView buttonReArrange;
     TextView textAnswer;
 
     int QuestionNum = ChangeArr.length;
@@ -329,9 +329,9 @@ public class WordMatchingFragment extends Fragment {
 
     public void ReArrange()
     {
-        Button[] buttons = {
-                button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12
-        };
+//        Button[] buttons = {
+//                button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12
+//        };
 
 
 
@@ -372,7 +372,7 @@ public class WordMatchingFragment extends Fragment {
 
         for(int i = 0; i<12; i++)
         {
-            buttons[location[i]].setText(wordSet[i]);
+            buttons.get(location[i]).setText(wordSet[i]);
         }
 
         System.out.println(Arrays.toString(numbers));
@@ -390,31 +390,25 @@ public class WordMatchingFragment extends Fragment {
 
        View root = inflater.inflate(R.layout.fragment_word_matching, container, false);
 
-      button1 = root.findViewById(R.id.button1);
-      button2 = root.findViewById(R.id.button2);
-      button3 = root.findViewById(R.id.button3);
-      button4 = root.findViewById(R.id.button4);
-      button5 = root.findViewById(R.id.button5);
-      button6 = root.findViewById(R.id.button6);
-      button7 = root.findViewById(R.id.button7);
-      button8 = root.findViewById(R.id.button8);
-      button9 = root.findViewById(R.id.button9);
-      button10 = root.findViewById(R.id.button10);
-      button11 = root.findViewById(R.id.button11);
-      button12 = root.findViewById(R.id.button12);
-      buttonShare = root.findViewById(R.id.buttonShare);
-      buttonReset = root.findViewById(R.id.buttonReset);
-      buttonReArrange = root.findViewById(R.id.buttonReArrange);
-      textAnswer = root.findViewById(R.id.textView16);
+       int[] ids = {
+               R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5, R.id.button6, R.id.button7, R.id.button8, R.id.button9, R.id.button10, R.id.button11, R.id.button12
+       };
+
+       for (int i = 0; i < 12; i++)
+           buttons.add(root.findViewById(ids[i]));
+       buttonShare = root.findViewById(R.id.buttonShare);
+       buttonReset = root.findViewById(R.id.buttonReset);
+       buttonReArrange = root.findViewById(R.id.buttonReArrange);
+       textAnswer = root.findViewById(R.id.answer_tv);
 
 
 
 
 
 
-        Button[] buttons = {
-                button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12
-        };
+//        Button[] buttons = {
+//                button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12
+//        };
         boolean[] clicked = {false, false, false, false, false, false, false, false, false, false, false, false, false};
 
         ReArrange();
@@ -437,7 +431,7 @@ public class WordMatchingFragment extends Fragment {
     for(int i = 0; i<12; i++)
     {
         int finalI = i;
-        buttons[i].setOnClickListener(new View.OnClickListener() {
+        buttons.get(i).setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View view) {
@@ -453,7 +447,7 @@ public class WordMatchingFragment extends Fragment {
 
                     for(int i = 0; i<12; i++)
                     {
-                        if(wordSet[i].equals(buttons[finalI].getText()))
+                        if(wordSet[i].equals(buttons.get(finalI).getText()))
                         {
                             answer01 = i;
                             break;
@@ -462,7 +456,7 @@ public class WordMatchingFragment extends Fragment {
 
                     for(int i = 0; i<12; i++)
                     {
-                        if(wordSet[i].equals(buttons[answerNum].getText()))
+                        if(wordSet[i].equals(buttons.get(answerNum).getText()))
                         {
                             answer02 = i;
                             break;
@@ -474,19 +468,19 @@ public class WordMatchingFragment extends Fragment {
                     if(answer01/2 == answer02/2) // 정답처리 알고리즘 재구현하기
                     {
                         Toast.makeText(getActivity().getApplicationContext(), "정답입니다.", Toast.LENGTH_LONG).show();
-                        buttons[finalI].setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.rounded_button_2));
-                        buttons[finalI].setEnabled(false);
+                        buttons.get(finalI).setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.rounded_button_2));
+                        buttons.get(finalI).setEnabled(false);
                         clicked[finalI] = true;
                         clicked[answerNum] = true;
-                        textAnswer.append(buttons[finalI].getText() + " - ");
-                        textAnswer.append(buttons[answerNum].getText() + "\n");
+                        textAnswer.append(buttons.get(finalI).getText() + " - ");
+                        textAnswer.append(buttons.get(answerNum).getText() + "\n");
                     }
                     else
                     {
-                        buttons[finalI].setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.rounded_button));
-                        buttons[finalI].setEnabled(true);
-                        buttons[answerNum].setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.rounded_button));
-                        buttons[answerNum].setEnabled(true);
+                        buttons.get(finalI).setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.rounded_button));
+                        buttons.get(finalI).setEnabled(true);
+                        buttons.get(answerNum).setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.rounded_button));
+                        buttons.get(answerNum).setEnabled(true);
                         Toast.makeText(getActivity().getApplicationContext(), "다시 시도해보세요!", Toast.LENGTH_LONG).show();
                         clicked[finalI] = false;
                         clicked[answerNum] = false;
@@ -500,8 +494,8 @@ public class WordMatchingFragment extends Fragment {
                 {
                     answerNum = finalI;
                     doubleClicked = true;
-                    buttons[finalI].setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.rounded_button_2));
-                    buttons[finalI].setEnabled(false);
+                    buttons.get(finalI).setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.rounded_button_2));
+                    buttons.get(finalI).setEnabled(false);
                     clicked[finalI] = true;
 
 
@@ -543,9 +537,9 @@ public class WordMatchingFragment extends Fragment {
             textAnswer.setText("");
             for(int i = 0 ;i<12; i++)
             {
-                buttons[i].setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.rounded_button));
+                buttons.get(i).setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.rounded_button));
                 clicked[i] = false;
-                buttons[i].setEnabled(true);
+                buttons.get(i).setEnabled(true);
 
 
             }
@@ -563,9 +557,9 @@ public class WordMatchingFragment extends Fragment {
             textAnswer.setText("");
             for(int i = 0 ;i<12; i++)
             {
-                buttons[i].setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.rounded_button));
+                buttons.get(i).setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.rounded_button));
                 clicked[i] = false;
-                buttons[i].setEnabled(true);
+                buttons.get(i).setEnabled(true);
 
 
             }

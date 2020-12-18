@@ -31,6 +31,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,18 +44,21 @@ import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import soup.neumorphism.NeumorphFloatingActionButton;
+
 import static android.content.ClipDescription.MIMETYPE_TEXT_PLAIN;
 import static android.content.Context.NOTIFICATION_SERVICE;
 
 
 public class TranslateFragment extends Fragment implements TextToSpeech.OnInitListener {
 
+    public static TranslateFragment newInstance() {
+        return new TranslateFragment();
+    }
+
     TextToSpeech tts;
 
-    Button btnTranslate;
-    ImageButton btnTTSRead;
-    ImageButton btnTTSRead2;
-    ImageButton btnTTSWrite;
+    NeumorphFloatingActionButton btnTranslate, btnTTSRead, btnTTSWrite;
     EditText textConvertInput;
     TextView textConvertResult;
 
@@ -86,45 +90,20 @@ public class TranslateFragment extends Fragment implements TextToSpeech.OnInitLi
 
         View view = getLayoutInflater().inflate(R.layout.fragment_translate, container, false);
         context = container.getContext();
+        btnTranslate = view.findViewById(R.id.btnTranslate);
+        textConvertResult = view.findViewById(R.id.textConvertResult);
 
 
-
-
-
-        return view;
-
-
-
-
-    }
-
-
-
-
-
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-
-        btnTranslate = getView().findViewById(R.id.btnTranslate);
-        textConvertResult = getView().findViewById(R.id.textConvertResult);
-
-
-        textConvertInput = getView().findViewById(R.id.textConvertInput);
-        btnTTSRead = getView().findViewById(R.id.btnTTSRead);
-        btnTTSRead2 = getView().findViewById(R.id.btnTTSRead2);
-        btnTTSWrite = getView().findViewById(R.id.btnTTSWrite);
+        textConvertInput = view.findViewById(R.id.textConvertInput);
+        btnTTSRead = view.findViewById(R.id.btnTTSRead);
+        btnTTSWrite = view.findViewById(R.id.btnTTSWrite);
 
 
         tts = new TextToSpeech(getActivity(), this);
         textConvertResult.setEnabled(true);
 
-        btnTTSRead.setOnClickListener(view -> speakOutNow());
-        btnTTSRead2.setOnClickListener(view -> speakOutNow2());
-        btnTranslate.setOnClickListener(view -> Translate());
+        btnTTSRead.setOnClickListener(v -> speakOutNow());
+        btnTranslate.setOnClickListener(v -> Translate());
 
         textConvertInput.addTextChangedListener(new TextWatcher() {
             @Override
@@ -152,6 +131,18 @@ public class TranslateFragment extends Fragment implements TextToSpeech.OnInitLi
         btnTTSWrite.setOnClickListener(v ->
                 startActivityForResult(new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM).putExtra(RecognizerIntent.EXTRA_PROMPT, "Speech Recognition"), 1003));
 
+        return view;
+    }
+
+
+
+
+
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
         // 클립보드
         ClipboardManager clipboard = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
@@ -485,12 +476,10 @@ public class TranslateFragment extends Fragment implements TextToSpeech.OnInitLi
             if (language == TextToSpeech.LANG_MISSING_DATA || language == TextToSpeech.LANG_NOT_SUPPORTED)
             {
                 btnTTSRead.setEnabled(false);
-                btnTTSRead2.setEnabled(false);
                 Toast.makeText(getActivity(), "지원하지 않는 언어입니다.", Toast.LENGTH_SHORT).show();
             }
             else {
                 btnTTSRead.setEnabled(true);
-                btnTTSRead2.setEnabled(true);
             }
         } else {
             Toast.makeText(getActivity(), "TTS 실패!", Toast.LENGTH_SHORT).show();
@@ -511,12 +500,6 @@ public class TranslateFragment extends Fragment implements TextToSpeech.OnInitLi
         tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
     }
 
-
-    private void speakOutNow2() {
-        String text2 = textConvertInput.getText().toString();
-        tts.speak(text2, TextToSpeech.QUEUE_FLUSH, null);
-    }
-
     public void clicked()
     {
        // Toast.makeText(getActivity(), "뭐라도 보여드리겠습니다!", Toast.LENGTH_LONG).show();
@@ -524,12 +507,15 @@ public class TranslateFragment extends Fragment implements TextToSpeech.OnInitLi
     }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
+    //@RequiresApi(api = Build.VERSION_CODES.O)
     public void Translate()
     {
 
         //0731 처음부터 시작
         String Translate = textConvertInput.getText().toString();
+
+        if (Translate.length() <= 0) return;
+
         System.out.println(ChangeArr.length);
         int[][] changed =
                 {

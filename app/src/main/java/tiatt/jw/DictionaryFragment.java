@@ -1,25 +1,41 @@
 package tiatt.jw;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.Switch;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import soup.neumorphism.NeumorphImageButton;
+
 
 public class DictionaryFragment extends Fragment {
+
+    private Context mContext;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        mContext = context;
+    }
+
+    public static DictionaryFragment newInstance() {
+        return new DictionaryFragment();
+    }
 
     String[] ChangeArr[] = {
 
@@ -302,7 +318,7 @@ public class DictionaryFragment extends Fragment {
 
     // Button buttonSearch;
     EditText textSearch;
-    Switch switch5;
+    SwitchCompat optionSwitch;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -310,7 +326,8 @@ public class DictionaryFragment extends Fragment {
 
 
         View root = inflater.inflate(R.layout.fragment_dictionary, container, false);
-        switch5 = root.findViewById(R.id.switch5);
+        optionSwitch = root.findViewById(R.id.option_switch);
+        optionSwitch.setSwitchPadding(10);
         recyclerView = root.findViewById(R.id.recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -344,11 +361,14 @@ public class DictionaryFragment extends Fragment {
         adapter.notifyDataSetChanged();
 
 
-        switch5.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        optionSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                search();
-
+                optionSwitch.setText(getResources().getString(
+                        b ? R.string.search_foreign : R.string.search_korean
+                ));
+                if (textSearch.getText().toString().trim().length() > 0)
+                    search();
             }
         });
 
@@ -371,8 +391,16 @@ public class DictionaryFragment extends Fragment {
             }
         });
 
+        NeumorphImageButton searchBtn = root.findViewById(R.id.searchBtn);
+        searchBtn.setOnClickListener(view -> {
+            // EditText에 Focus
+            textSearch.requestFocus();
 
+            //키보드 보이게 하는 부분
+            InputMethodManager imm = (InputMethodManager) mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
 
+        });
 
         return root;
     }
@@ -384,7 +412,7 @@ public void search()
     adapter = new RecyclerAdapter();
     recyclerView.setAdapter(adapter);
 
-    if(switch5.isChecked())
+    if(optionSwitch.isChecked())
     {
         for (int i = 0; i < ChangeArr.length; i++) {
             if(ChangeArr[i][1].contains(textSearch.getText()))

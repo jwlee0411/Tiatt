@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.annotation.RequiresApi;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -20,16 +23,34 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+
+import soup.neumorphism.NeumorphImageButton;
 
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
+    private ArrayList<NeumorphImageButton> bottomButtons = new ArrayList<>();
+    private int currentPage = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        bottomButtons.add(findViewById(R.id.bottom_dictionary));
+        bottomButtons.add(findViewById(R.id.bottom_translate));
+        bottomButtons.add(findViewById(R.id.bottom_quiz));
+        bottomButtons.add(findViewById(R.id.bottom_match_game));
+
+        for (NeumorphImageButton b : bottomButtons)
+            b.setOnClickListener(bottomClickListener);
+
+        ChangeFragment(DictionaryFragment.newInstance());
 
 //        Toolbar toolbar = findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
@@ -44,13 +65,45 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Setting BottomNavigationView
-        BottomNavigationView btm = findViewById(R.id.bottomNavView);
-        NavController nav = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupWithNavController(btm, nav);
+//        BottomNavigationView btm = findViewById(R.id.bottomNavView);
+//        NavController nav = Navigation.findNavController(this, R.id.nav_host_fragment);
+//        NavigationUI.setupWithNavController(btm, nav);
     }
 
+    private View.OnClickListener bottomClickListener = view -> {
+        // currentPage : 바뀌기 전 페이지
+        bottomButtons.get(currentPage).setShapeType(0);
+        bottomButtons.get(currentPage).setClickable(true);
 
+        switch (view.getId()) {
+            case R.id.bottom_dictionary:
+                ChangeFragment(DictionaryFragment.newInstance());
+                currentPage = 0;
+                break;
+            case R.id.bottom_translate:
+                ChangeFragment(TranslateFragment.newInstance());
+                currentPage = 1;
+                break;
+            case R.id.bottom_quiz:
+                ChangeFragment(QuizFragment.newInstance());
+                currentPage = 2;
+                break;
+            case R.id.bottom_match_game:
+                ChangeFragment(WordMatchingFragment.newInstance());
+                currentPage = 3;
+                break;
+        }
 
+        // currentPage : 바뀐 후 페이지
+        bottomButtons.get(currentPage).setShapeType(1);
+        bottomButtons.get(currentPage).setClickable(false);
+    };
+
+    private void ChangeFragment(Fragment fragment) {
+        FragmentTransaction tran = getSupportFragmentManager().beginTransaction();
+        tran.replace(R.id.container, fragment);
+        tran.commit();
+    }
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)

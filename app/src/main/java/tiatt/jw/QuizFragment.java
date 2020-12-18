@@ -14,16 +14,23 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import soup.neumorphism.NeumorphButton;
+
 
 public class QuizFragment extends Fragment {
 
+    public static QuizFragment newInstance() {
+        return new QuizFragment();
+    }
+
 
     TextView txtQuiz;
-    Button bogie1;
-    Button bogie2;
-    Button bogie3;
-    Button bogie4;
+//    Button bogie1;
+//    Button bogie2;
+//    Button bogie3;
+//    Button bogie4;
 
+    NeumorphButton bogie1, bogie2, bogie3, bogie4;
 
 
 
@@ -116,9 +123,6 @@ public class QuizFragment extends Fragment {
         bogie2.setOnClickListener(this::Click2);
         bogie3.setOnClickListener(this::Click3);
         bogie4.setOnClickListener(this::Click4);
-
-
-
 }
 
       public void Click1(View v)
