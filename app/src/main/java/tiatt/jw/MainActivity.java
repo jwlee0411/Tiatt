@@ -7,23 +7,16 @@ import android.view.View;
 
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
-
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
-import android.widget.Toast;
+import android.widget.DatePicker;
 
 import java.util.ArrayList;
 
@@ -35,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
 
     private ArrayList<NeumorphImageButton> bottomButtons = new ArrayList<>();
-    private int currentPage = 0;
+    private int currentPage = 0, nextPage = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         for (NeumorphImageButton b : bottomButtons)
             b.setOnClickListener(bottomClickListener);
 
+        // 초기 화면 설정
         ChangeFragment(DictionaryFragment.newInstance());
 
 //        Toolbar toolbar = findViewById(R.id.toolbar);
@@ -71,36 +65,42 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private View.OnClickListener bottomClickListener = view -> {
-        // currentPage : 바뀌기 전 페이지
-        bottomButtons.get(currentPage).setShapeType(0);
-        bottomButtons.get(currentPage).setClickable(true);
 
         switch (view.getId()) {
             case R.id.bottom_dictionary:
+                nextPage = 0;
                 ChangeFragment(DictionaryFragment.newInstance());
-                currentPage = 0;
                 break;
             case R.id.bottom_translate:
+                nextPage = 1;
                 ChangeFragment(TranslateFragment.newInstance());
-                currentPage = 1;
                 break;
             case R.id.bottom_quiz:
+                nextPage = 2;
                 ChangeFragment(QuizFragment.newInstance());
-                currentPage = 2;
                 break;
             case R.id.bottom_match_game:
+                nextPage = 3;
                 ChangeFragment(WordMatchingFragment.newInstance());
-                currentPage = 3;
                 break;
         }
 
-        // currentPage : 바뀐 후 페이지
-        bottomButtons.get(currentPage).setShapeType(1);
-        bottomButtons.get(currentPage).setClickable(false);
+        // currentPage : 바뀌기 전 페이지
+        bottomButtons.get(currentPage).setShapeType(0);
+        bottomButtons.get(currentPage).setClickable(true);
+        // nextPage : 바뀐 후 페이지
+        bottomButtons.get(nextPage).setShapeType(1);
+        bottomButtons.get(nextPage).setClickable(false);
+
+        currentPage = nextPage;
     };
 
     private void ChangeFragment(Fragment fragment) {
         FragmentTransaction tran = getSupportFragmentManager().beginTransaction();
+
+        if (nextPage > currentPage) tran.setCustomAnimations(R.anim.slide_left_enter, R.anim.slide_left_exit);
+        else                        tran.setCustomAnimations(R.anim.slide_right_enter, R.anim.slide_right_exit);
+
         tran.replace(R.id.container, fragment);
         tran.commit();
     }

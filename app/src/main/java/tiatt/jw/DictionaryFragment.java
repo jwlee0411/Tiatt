@@ -42,7 +42,7 @@ public class DictionaryFragment extends Fragment {
             //참고 : https://projectresearch.co.kr/2012/10/03/%EB%A9%8B%EC%A7%84-%EC%9A%B0%EB%A6%AC%EB%A7%90-%EC%88%9C%ED%99%94-%EB%AA%A9%EB%A1%9D-%EA%B5%AD%EB%A6%BD%EA%B5%AD%EC%96%B4%EC%9B%90-%EC%9A%B0%EB%A6%AC%EB%A7%90-%EB%8B%A4%EB%93%AC%EA%B8%B0/
             //참고2 : https://endic.naver.com/
             // 1단계
-            // 바꾸기 전 단어 / 바꿀 단어 / 어원 / 뜻 / 다른 단어
+            // 바꾸기 전 단어 / 바꾼 단어 / 어원 / 뜻 / 다른 단어
             {"가십", "입방아", "gossip", "소문이 될 만한 내용", ""},
             {"갈라쇼", "뒤풀이공연", "gala show", "큰 경기나 공연이 끝나고 나서, 축하하여 벌이는 큰 규모의 오락 행사.", ""},
             {"게이트", "문", "gate", "정치가·정부 관리와 관련된, 비리 의혹에 싸여 있는 사건.", "개표구, 의혹사건"},
