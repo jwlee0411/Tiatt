@@ -15,7 +15,7 @@
         android:scaleType="fitEnd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/title_translate" />
+        app:srcCompat="@drawable/title_wordmatching" />
 
     <GridLayout
         android:id="@+id/gridLayout"
