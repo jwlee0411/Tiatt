@@ -15,7 +15,7 @@
         android:scaleType="fitEnd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/title_wordmatching" />
+        app:srcCompat="@drawable/title_quiz" />
 
     <TextView
         android:id="@+id/txtQuiz"
